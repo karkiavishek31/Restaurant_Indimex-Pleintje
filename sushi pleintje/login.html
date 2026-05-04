@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sushi Pleintje</title>
+    <!-- Google Fonts: Montserrat & Bodoni Moda -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #050a06;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(215, 138, 115, 0.1);
+            padding: 4rem;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        .login-card h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .login-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem;
+            color: white;
+            font-family: var(--font-main);
+            font-size: 1rem;
+        }
+        .login-btn {
+            background-color: var(--accent);
+            color: #050a06;
+            border: none;
+            padding: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .login-btn:hover {
+            background-color: #f4e8db;
+        }
+        .login-footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .login-footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <h1>Aanmelden</h1>
+            <form class="login-form" id="login-form">
+                <input type="email" class="login-input" placeholder="E-mailadres" required>
+                <input type="password" class="login-input" placeholder="Wachtwoord" required>
+                <button type="submit" class="login-btn">Inloggen</button>
+            </form>
+            <div class="login-footer">
+                Nog geen account? <a href="#">Registreer hier</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'shop.html';
+        });
+    </script>
+</body>
+</html>

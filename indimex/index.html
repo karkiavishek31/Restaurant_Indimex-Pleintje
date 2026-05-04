@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indimex | Indian & Mexican Cuisine</title>
+    <meta name="description" content="Delicious, fresh Indian & Mexican fusion crafted with care.">
+
+    <!-- Google Fonts: Montserrat, Caveat & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=8">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Dynamic Noise Overlay -->
+    <canvas id="noise-overlay"></canvas>
+
+    <!-- SVG Displacement Filter for Liquid Hover -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" id="turbulence" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
+                    id="displacement" />
+            </filter>
+        </defs>
+    </svg>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="brand-logo">
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active magnetic">Overview</a>
+            <a href="shop.html" class="magnetic">Menu</a>
+            <a href="#about" class="magnetic">About</a>
+            <a href="#gallery" class="magnetic">Gallery</a>
+            <a href="#find-us" class="magnetic">Find Us</a>
+        </div>
+        <div class="nav-cta">
+            <button class="btn-outline magnetic order-trigger">Order Now</button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main>
+        <!-- Hero: GIF scrolls away with page, title centred over it -->
+        <section class="hero" id="home">
+            <!-- GIF lives here — scrolls away naturally -->
+            <div class="gif-hero-container">
+                <img src="../media/indimex.gif" alt="Indimex in motion" class="gif-hero" id="hero-img">
+                <div class="gif-hero-overlay"></div>
+            </div>
+
+            <!-- Title centred over the GIF -->
+            <div class="hero-content">
+                <div class="hero-eyebrow-wrapper reveal-text">
+                    <span class="hero-eyebrow"><span id="typewriter">INDIAN</span> RESTAURANT · AARSCHOT · SINDS
+                        2017</span>
+                </div>
+                <h1 class="reveal-text">A Fusion of Two Worlds.</h1>
+                <p class="hero-subtitle reveal-text">Authentic Indian and Mexican flavors, beautifully united.</p>
+            </div>
+        </section>
+
+        <!-- Precision section (original) -->
+        <section class="section right-align" id="menu">
+            <div class="harmony-image-container">
+                <img src="../media/wall.webp" alt="Signature Wall Painting of Indimex" class="blended-image">
+            </div>
+            <div class="section-content">
+                <span class="menu-eyebrow reveal-text">FUSION</span>
+                <h2 class="reveal-text">Harmony.</h2>
+                <p class="reveal-text">Every spice tells a story. Every fusion is a celebration. Our signature dishes
+                    are a balanced dance of Indian heritage and Mexican spirit.</p>
+            </div>
+        </section>
+
+        <section class="section left-align" id="about">
+            <div class="section-content">
+                <span class="menu-eyebrow reveal-text">OUR STORY</span>
+                <h2 class="reveal-text">Our Spirit.</h2>
+                <p class="reveal-text" style="margin-bottom: 1rem;">At Indimex, we believe that culinary excellence is
+                    found in the unexpected. Our kitchen is a laboratory of flavor, where the deep, aromatic spices of
+                    India meet the bold, vibrant soul of Mexico.</p>
+                <p class="reveal-text">Every dish is a culmination of this lifelong passion for fusion. We don't just
+                    serve food; we deliver an authentic, premium culinary bridge between two of the world's most storied
+                    food cultures.</p>
+            </div>
+        </section> <!-- Photo Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-heading">
+                <span class="menu-eyebrow reveal-text">ONS GALLARIE</span>
+                <h2 class="reveal-text">Gallery.</h2>
+                <p class="reveal-text">Explore our vibrant fusion selection — crafted with bold flavors and love.</p>
+            </div>
+
+            <div class="cards-wrapper">
+                <!-- Hidden radios -->
+                <input type="radio" name="gallery-card" id="card-1" checked>
+                <input type="radio" name="gallery-card" id="card-2">
+                <input type="radio" name="gallery-card" id="card-3">
+                <input type="radio" name="gallery-card" id="card-4">
+                <input type="radio" name="gallery-card" id="card-5">
+                <input type="radio" name="gallery-card" id="card-6">
+                <input type="radio" name="gallery-card" id="card-7">
+                <input type="radio" name="gallery-card" id="card-8">
+
+                <!-- Single card: wheel peeks from top, details below -->
+                <div class="cards">
+                    <!-- Rotating wheel -->
+                    <div class="circle-container">
+                        <div><label for="card-1"><img
+                                    src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=500&auto=format&fit=crop"
+                                    alt="Indimex Platter"></label></div>
+                        <div><label for="card-2"><img
+                                    src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=500&auto=format&fit=crop"
+                                    alt="Butter Chicken Tacos"></label></div>
+                        <div><label for="card-3"><img
+                                    src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=500&auto=format&fit=crop"
+                                    alt="Tandoori Fajitas"></label></div>
+                        <div><label for="card-4"><img
+                                    src="https://images.unsplash.com/photo-1533682805518-48d1f5e8cd3e?q=80&w=500&auto=format&fit=crop"
+                                    alt="Spicy Masala Enchiladas"></label></div>
+                        <div><label for="card-5"><img
+                                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=500&auto=format&fit=crop"
+                                    alt="Paneer Tikka Quesadilla"></label></div>
+                        <div><label for="card-6"><img
+                                    src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=500&auto=format&fit=crop"
+                                    alt="Beef Biryani Burrito"></label></div>
+                        <div><label for="card-7"><img
+                                    src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=500&auto=format&fit=crop"
+                                    alt="Samosa Chaat"></label></div>
+                        <div><label for="card-8"><img
+                                    src="https://images.unsplash.com/photo-1624300629298-e9ad39c59508?q=80&w=500&auto=format&fit=crop"
+                                    alt="Churros with Chai Chocolate"></label></div>
+                    </div>
+
+                    <!-- Detail panel (inside the card) -->
+                    <div class="dish-details">
+                        <article class="dish-article">
+                            <h3 class="dish-title">Indimex Platter</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> India & Mexico</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Mixed fusion platter</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Bold, vibrant and diverse
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Mango Margarita</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Butter Chicken Tacos</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Delhi meets Tijuana</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Hand-held fusion</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Creamy, spiced, with a
+                                    fresh bite</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Cold Corona</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Tandoori Fajitas</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Punjab and Sonora</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Sizzling spiced meat</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Smoky, fiery with a tangy
+                                    finish</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Kingfisher Beer</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Spicy Masala Enchiladas</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Oaxaca with an Indian twist
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Baked fusion rolls</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Rich, cheesy, and deeply
+                                    spiced</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Tamarind Margarita</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Paneer Tikka Quesadilla</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Mumbai to Mexico City</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Cheesy grilled flatbread</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Smoky, gooey and tangy</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Iced Mint Tea</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Beef Biryani Burrito</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Hyderabad and San Francisco
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Ultimate fusion wrap</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Aromatic, hearty and
+                                    fulfilling</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Mango Lassi</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Samosa Chaat</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Street food classic</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Crushed savory pastry</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Sweet, spicy, tangy crunch
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Masala Chai</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Churros with Chai Chocolate</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Spanish-Mexican dessert</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Crispy fried dough</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Sweet, cinnamon with spiced
+                                    chocolate</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Café de Olla</li>
+                            </ul>
+                        </article>
+                    </div><!-- /.dish-details -->
+
+                    <!-- Nav arrows at card bottom -->
+                    <div class="dial-nav-grid">
+                        <div class="dial-nav-slot"><label for="card-8" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-2" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-1" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-3" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-2" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-4" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-3" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-5" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-4" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-6" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-5" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-7" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-6" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-8" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-7" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-1" class="nav-btn magnetic">&#8594;</label></div>
+                    </div>
+                </div><!-- /.cards -->
+            </div><!-- /.cards-wrapper -->
+        </section>
+
+        <section class="section center-align" id="order">
+            <div class="section-content final-cta">
+                <h2 class="reveal-text">Ready For Experience?</h2>
+                <div class="order-buttons">
+                    <button class="btn-large magnetic">Bestel Online</button>
+                    <button class="btn-large magnetic dine-in-trigger">Dine-In</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find Us Section -->
+        <section class="section center-align find-us-section" id="find-us">
+            <div class="section-content find-us-content">
+                <span class="menu-eyebrow reveal-text">LOCATIE</span>
+                <h2 class="reveal-text">Find Us.</h2>
+                <p class="reveal-text">Visit us at Indimex — vibrant, premium fusion crafted daily, ready for you to
+                    enjoy.</p>
+                <div class="map-wrapper">
+                    <iframe id="sushi-map" title="Indimex Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500.0!2d4.4!3d51.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f68de7b87ec5%3A0x1!2sSushi+Pleintje!5e0!3m2!1snl!2sbe!4v1700000000000!5m2!1snl!2sbe"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay-info">
+                        <div class="map-pin-card">
+                            <span class="pin-icon">📍</span>
+                            <div class="pin-details">
+                                <strong>Indimex</strong>
+                                <span>Belgium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Reviews Section -->
+                <div class="google-reviews-section">
+                    <div class="reviews-intro">
+                        <h3>Geloof ons niet zomaar op ons woord.</h3>
+                        <p>Lees hier wat onze fantastische klanten te zeggen hebben over hun IndiMex-ervaring.</p>
+                    </div>
+
+                    <div class="reviews-layout">
+                        <!-- Summary Card with Button -->
+                        <div class="reviews-summary-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                                alt="Google" width="40" class="google-icon">
+                            <h3 class="summary-title">Google Reviews</h3>
+                            <div class="score-stars">
+                                <span class="score">4.8</span>
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="count">(124)</span>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=IndiMex+Aarschot" target="_blank"
+                                class="share-feedback-btn">Share your feedback</a>
+                        </div>
+
+                        <!-- Automated Infinite Slider -->
+                        <div class="marquee-container">
+                            <div class="marquee-track" id="marquee-track">
+                                <!-- 10 Real Reviews -->
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Amazing Food, Amazing Hospitality. I see people enjoying the
+                                        delicious indian and mexican food. People here are very friendly and the place
+                                        is very lively."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #e91e63;">T</div>
+                                        <span class="name">Tarang S</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Indian cuisine offers such a rich variety of flavors and
+                                        dishes. It's great that you found a place that not only serves delicious food
+                                        but also provides excellent hospitality."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #4caf50;">R</div>
+                                        <span class="name">R. Baral</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Do yourself a favour. Go here for a meal. From the freshly
+                                        made guacamole and samosas to the tandoori sauces, kadahi, palak, and fajitas
+                                        your tastebuds are in for a treat."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #2196f3;">R</div>
+                                        <span class="name">Robert Brown</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Had amazing experience here. Very friendly service. Frozen
+                                        margaritas was delicious. They had new dish zeebaars met salsa limonada saus. It
+                                        was very good."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #ff9800;">O</div>
+                                        <span class="name">Ocean</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"We come here at least twice a year. Great food, smooth and
+                                        very friendly service, Always looking forward to dine here. Never been
+                                        disappointed."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #9c27b0;">W</div>
+                                        <span class="name">Wim Printemps</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"The food served on separate platters made sharing convenient
+                                        and it allowed the food to stay heated to spur eating at your own pace. Highly
+                                        recommended."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #00bcd4;">N</div>
+                                        <span class="name">Nigel Schoofs</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"The butter chicken was rich, creamy, and packed with
+                                        flavor-easily one of the best I've had. Everything was fresh, flavorful, and
+                                        authentic."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #f44336;">A</div>
+                                        <span class="name">Ankit</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Authentic flavors, amazing hospitality and excellent
+                                        service. One of the best Indian restaurant in Belgium. Highly recommended."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #3f51b5;">P</div>
+                                        <span class="name">Prakash Karki</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Best Indian restaurant in Aarschot. The food is very
+                                        delicious and the service is great. Highly recommended."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #8bc34a;">S</div>
+                                        <span class="name">Suman Sharma</span>
+                                    </div>
+                                </div>
+                                <div class="review-card">
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="review-text">"Friendly staff, excellent traditional food. We really liked
+                                        it and will certainly come back again."</p>
+                                    <div class="reviewer">
+                                        <div class="avatar" style="background: #795548;">T</div>
+                                        <span class="name">Tiziano Ghiotto</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Indimex Partner Section -->
+    <section class="indimex-section section center-align">
+        <div class="section-content indimex-content">
+            <h2 class="reveal-text">Experience Sushi Pleintje</h2>
+            <p class="reveal-text" style="margin-bottom: 3rem; max-width: 600px; text-align: center;">Where two cultures
+                unite through food. Discover the beautiful marriage of authentic Indian and Mexican culinary traditions
+                at our partner restaurant.</p>
+            <a href="https://sushipleintje.be" target="_blank" rel="noopener noreferrer" class="indimex-link">
+                <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="indimex-logo">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="footer-logo">
+                <a href="https://sushipleintje.be" target="_blank" rel="noopener noreferrer" class="indimex-link">
+                    <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">OPENINGSUUREN</h4>
+                    <div class="footer-hours">
+                        <div class="hours-row"><span>Di-Do</span> <span>17:00 - 21:30</span></div>
+                        <div class="hours-row"><span>Vr-Za</span> <span>17:00 - 22:30</span></div>
+                        <div class="hours-row"><span>Zondag</span> <span>16:30 - 21:30</span></div>
+                        <div class="hours-row"><span>Maandag</span> <span>Gesloten</span></div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">CONTACT</h4>
+                    <div class="footer-contact-info">
+                        <p>Schaluin 10B, 3200, Aarschot</p>
+                        <p><a href="tel:+3291234567" class="magnetic">+32 9 123 45 67</a></p>
+                        <p><a href="mailto:hallo@indimex.be" class="magnetic">hallo@indimex.be</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="magnetic" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="magnetic" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-credits">
+                <p>Designed by Karki Avishek</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Winkelwagen (Cart Drawer) -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-drawer" class="cart-drawer" data-lenis-prevent>
+        <div class="cart-header">
+            <div class="cart-title-wrapper">
+                <h2 class="cart-title">Jouw Bestelling</h2>
+                <span class="cart-stuks"><span class="cart-count">0</span> STUKS</span>
+            </div>
+            <button id="cart-close-btn" class="cart-close-btn">&times;</button>
+        </div>
+        
+        <div class="cart-body" id="cart-body" data-lenis-prevent>
+            <!-- Populated items will go here via JS -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-subtotal-row">
+                <span class="subtotal-label">SUBTOTAAL</span>
+                <span class="subtotal-currency">€</span>
+                <span class="subtotal-amount" id="cart-subtotal">0.00</span>
+            </div>
+            
+            <div class="cart-checkout-section">
+                <p class="checkout-note">Exclusief bezorgkosten. Gratis verzending vanaf €50.</p>
+                <button class="checkout-btn magnetic">Afrekenen</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Ancient Envelope Reservation Widget -->
+    <div id="reservation-envelope-container">
+        <div class="scrap-label magnetic">Reserve</div>
+        <div class="envelope">
+            <div class="envelope-flap top-flap"></div>
+            <div class="envelope-body">
+                <h3 class="reserve-title">Reserve a Table</h3>
+                <form id="reservation-form">
+                    <input type="text" class="env-input" placeholder="Name" required>
+                    <div class="env-row">
+                        <input type="date" class="env-input" required>
+                        <input type="time" class="env-input" required>
+                    </div>
+                    <button type="submit" class="env-btn magnetic">Send Request</button>
+                </form>
+            </div>
+            <div class="envelope-seal"></div>
+        </div>
+        <div id="reservation-success">Request Sent</div>
+    </div>
+
+    <!-- Login Modal (Premium Popup) -->
+    <div id="login-overlay" class="login-overlay"></div>
+    <div id="login-modal" class="login-modal">
+        <div class="login-card">
+            <button id="login-close-btn" class="login-close-btn">&times;</button>
+            <div class="login-banner">
+                <img src="../media/wall.webp" alt="Signature Wall" class="login-photo">
+            </div>
+            <img src="../media/indimex golden transparent.PNG" alt="Indimex" class="logo-small">
+            <h1>Welcome Back</h1>
+            <p>Log in to access your account and order your favorites.</p>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="name@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Libraries via CDN -->
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Removed Three.js (Using SVG Displacement to fix local file CORS) -->
+
+    <!-- Main Script -->
+    <script src="products.js?v=9"></script>
+    <script src="main.js?v=9"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indimex | Account Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b1a30;
+            --accent: #d4af37;
+            --text: #f4e8db;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 4rem;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+        }
+        .logo-small { height: 60px; margin-bottom: 2rem; }
+        h1 { font-size: 2rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+        p { margin-bottom: 3rem; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+        .input-group { margin-bottom: 2rem; text-align: left; }
+        label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; color: var(--accent); }
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            padding: 1rem 0;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-color: var(--accent); }
+        .login-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            width: 100%;
+            padding: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 2rem;
+        }
+        .login-btn:hover { transform: translateY(-3px); }
+        .back-link { display: block; margin-top: 2rem; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <img src="../media/indimex golden transparent.PNG" alt="Indimex" class="logo-small">
+        <h1>Welcome Back</h1>
+        <p>Log in to access your Indimex account and order your fusion favorites.</p>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="name@example.com" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        
+        <a href="index.html" class="back-link">← Return to site</a>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'shop.html';
+        });
+    </script>
+</body>
+</html>

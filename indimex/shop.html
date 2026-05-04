@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indimex | Online Bestellen</title>
+    <meta name="description" content="Bestel online bij Indimex – authentieke Indian & Mexican fusion, vers bereid en bij u thuis bezorgd.">
+
+    <!-- Google Fonts: Montserrat, Caveat & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=9">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Dynamic Noise Overlay -->
+    <canvas id="noise-overlay"></canvas>
+
+    <!-- SVG Displacement Filter for Liquid Hover -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" id="turbulence" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
+                    id="displacement" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="brand-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="magnetic">Home</a>
+            <a href="shop.html" class="active magnetic">Menu</a>
+            <a href="index.html#about" class="magnetic">About</a>
+            <a href="index.html#gallery" class="magnetic">Gallery</a>
+            <a href="index.html#find-us" class="magnetic">Find Us</a>
+        </div>
+        <div class="nav-cta">
+            <button id="cart-open-btn" class="cart-toggle-btn magnetic">
+                🛒 Winkelwagen (<span class="cart-count">0</span>)
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main>
+        <!-- Shop Hero -->
+        <section class="shop-hero">
+            <div class="hero-content menu-typography">
+                <span class="menu-eyebrow reveal-text">BESTEL ONLINE</span>
+                <h1 class="menu-title reveal-text">Explore the <span class="highlight">Fusion.</span></h1>
+                <p class="menu-subtitle reveal-text">Authentieke smaken, met zorg en snelheid bij u bezorgd.</p>
+            </div>
+        </section>
+
+        <!-- Dynamic Menu Section -->
+        <section class="menu-section" id="menu">
+            <div class="menu-header">
+                <h2 class="reveal-text">Onze Kaart</h2>
+                <p class="reveal-text">Van Indische kerrie tot Mexicaanse fajitas – ontdek onze volledige fusion kaart.</p>
+                <div class="category-filters reveal-text" id="category-filters">
+                    <!-- Categories will be injected here -->
+                </div>
+            </div>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Products will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Sushi Pleintje Partner Section -->
+    <section class="indimex-section section center-align">
+        <div class="section-content indimex-content">
+            <h3 class="reveal-text" style="font-size: 2rem; margin-bottom: 1rem;">Discover Sushi Pleintje</h3>
+            <p class="reveal-text" style="margin-bottom: 3rem; max-width: 600px; text-align: center;">Our sister restaurant crafting premium Japanese sushi with precision and passion. Experience the art of Omakase.</p>
+            <a href="../sushi pleintje/index.html" class="indimex-link">
+                <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="indimex-logo">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="footer-logo">
+                <a href="../sushi pleintje/index.html" class="indimex-link">
+                    <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">OPENINGSUUREN</h4>
+                    <div class="footer-hours">
+                        <div class="hours-row"><span>Di-Do</span> <span>17:00 - 21:30</span></div>
+                        <div class="hours-row"><span>Vr-Za</span> <span>17:00 - 22:30</span></div>
+                        <div class="hours-row"><span>Zondag</span> <span>16:30 - 21:30</span></div>
+                        <div class="hours-row"><span>Maandag</span> <span>Gesloten</span></div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">CONTACT</h4>
+                    <div class="footer-contact-info">
+                        <p>'t Pleintje 4, 9000 Gent</p>
+                        <p><a href="tel:+3291234567" class="magnetic">+32 9 123 45 67</a></p>
+                        <p><a href="mailto:hallo@indimex.be" class="magnetic">hallo@indimex.be</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="magnetic" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="magnetic" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-credits">
+                <p>Designed by Karki Avishek</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ancient Envelope Reservation Widget -->
+    <div id="reservation-envelope-container" style="display: none;">
+        <div class="scrap-label magnetic">Reserve</div>
+        <div class="envelope">
+            <div class="envelope-flap top-flap"></div>
+            <div class="envelope-body">
+                <h3 class="reserve-title">Reserve a Table</h3>
+                <form id="reservation-form">
+                    <input type="text" class="env-input" placeholder="Name" required>
+                    <div class="env-row">
+                        <input type="date" class="env-input" required>
+                        <input type="time" class="env-input" required>
+                    </div>
+                    <button type="submit" class="env-btn magnetic">Send Request</button>
+                </form>
+            </div>
+            <div class="envelope-seal"></div>
+        </div>
+        <div id="reservation-success">Request Sent</div>
+    </div>
+
+    <!-- Winkelwagen (Cart Drawer) -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-drawer" class="cart-drawer" data-lenis-prevent>
+        <div class="cart-header">
+            <div class="cart-title-wrapper">
+                <h2 class="cart-title">Jouw Bestelling</h2>
+                <span class="cart-stuks"><span class="cart-count">0</span> STUKS</span>
+            </div>
+            <button id="cart-close-btn" class="cart-close-btn">&times;</button>
+        </div>
+        
+        <div class="cart-body" id="cart-body" data-lenis-prevent>
+            <!-- Populated items will go here via JS -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-subtotal-row">
+                <span class="subtotal-label">SUBTOTAAL</span>
+                <span class="subtotal-currency">€</span>
+                <span class="subtotal-amount" id="cart-subtotal">0.00</span>
+            </div>
+            <div class="cart-checkout-section">
+                <p class="checkout-note">Bezorgkosten en tijdslot worden bij het afrekenen berekend.</p>
+                <button class="checkout-btn">AFREKENEN</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Libraries via CDN -->
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="products.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

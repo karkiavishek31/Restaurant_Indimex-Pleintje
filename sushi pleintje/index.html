@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Pleintje | Fresh Takeaway</title>
+    <meta name="description" content="Delicious, fresh sushi takeaway crafted with care.">
+
+    <!-- Google Fonts: Montserrat & Bodoni Moda -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=9">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Dynamic Noise Overlay -->
+    <canvas id="noise-overlay"></canvas>
+
+    <!-- SVG Displacement Filter for Liquid Hover -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" id="turbulence" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
+                    id="displacement" />
+            </filter>
+        </defs>
+    </svg>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="brand-logo">
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active magnetic">Home</a>
+            <a href="shop.html" class="magnetic">Menu</a>
+            <a href="#about" class="magnetic">About</a>
+            <a href="#gallery" class="magnetic">Gallery</a>
+            <a href="#find-us" class="magnetic">Find Us</a>
+        </div>
+        <div class="nav-cta">
+            <button class="btn-outline magnetic order-trigger">Bestel Online</button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main>
+        <!-- Hero: GIF scrolls away with page, title centred over it -->
+        <section class="hero" id="home">
+            <!-- GIF lives here — scrolls away naturally -->
+            <div class="gif-hero-container">
+                <img src="../media/sushi.gif" alt="Sushi in motion" class="gif-hero" id="sushi-gif">
+                <div class="gif-hero-overlay"></div>
+            </div>
+
+            <!-- Hero Content: Left aligned as per new brand vision -->
+            <div class="hero-content left-align">
+                <div class="hero-eyebrow-wrapper reveal-text">
+                    <span class="hero-eyebrow">SUSHI TAKEAWAY · AARSCHOT · SINDS 2026</span>
+                </div>
+                <h1 class="reveal-text">Handgerolde <span class="highlight">sushi,</span><br>recht van 't pleintje.</h1>
+                <p class="hero-subtitle reveal-text">Puur, compromisloos en verfijnd. De top van de Japanse keuken.</p>
+            </div>
+        </section>
+
+        <!-- Precision section (original) -->
+        <section class="section right-align" id="precision">
+            <div class="section-content">
+                <span class="menu-eyebrow reveal-text">AUTHENTICITY</span>
+                <h2 class="reveal-text">Precision.</h2>
+                <p class="reveal-text">Every cut is calculated. Every ingredient sourced with meticulous care. Our
+                    signature rolls are a testament to dedication.</p>
+                <div style="margin-top: 2rem;" class="reveal-text">
+                    <button class="btn-outline magnetic order-trigger">Bekijk volledige kaart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section left-align" id="about">
+            <div class="section-content">
+                <span class="menu-eyebrow reveal-text">OUR STORY</span>
+                <h2 class="reveal-text">About Us.</h2>
+                <p class="reveal-text" style="margin-bottom: 1rem;">At Sushi Pleintje, we believe that true Japanese
+                    cuisine is an art form that demands patience, respect, and unparalleled dedication. Founded on the
+                    principles of traditional Japanese craft, our chefs master the delicate balance of perfectly
+                    seasoned rice and the absolute freshest ingredients.</p>
+                <p class="reveal-text">Every roll we prepare is a culmination of this lifelong passion. We don't just
+                    serve takeaway; we deliver an authentic, premium culinary experience straight to your home.</p>
+            </div>
+        </section> <!-- Photo Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-heading menu-typography">
+                <span class="menu-eyebrow reveal-text">ONS GALLARIE</span>
+                <h2 class="menu-title reveal-text">Alles wat vandaag<br><span class="highlight">vers in huis is.</span>
+                </h2>
+                <p class="menu-subtitle reveal-text">Onze kaart wisselt met de seizoenen. Klik op een categorie om te
+                    filteren.</p>
+
+                <div class="menu-filters reveal-text">
+                    <button class="filter-btn active">ALLES</button>
+                    <button class="filter-btn">SPECIALS</button>
+                    <button class="filter-btn">MAKI</button>
+                    <button class="filter-btn">NIGIRI</button>
+                    <button class="filter-btn">SASHIMI</button>
+                    <button class="filter-btn">DRANKEN</button>
+                </div>
+            </div>
+
+            <div class="cards-wrapper">
+                <!-- Hidden radios -->
+                <input type="radio" name="gallery-card" id="card-1" checked>
+                <input type="radio" name="gallery-card" id="card-2">
+                <input type="radio" name="gallery-card" id="card-3">
+                <input type="radio" name="gallery-card" id="card-4">
+                <input type="radio" name="gallery-card" id="card-5">
+                <input type="radio" name="gallery-card" id="card-6">
+                <input type="radio" name="gallery-card" id="card-7">
+                <input type="radio" name="gallery-card" id="card-8">
+
+                <!-- Single card: wheel peeks from top, details below -->
+                <div class="cards">
+                    <!-- Rotating wheel -->
+                    <div class="circle-container">
+                        <div><label for="card-1"><img
+                                    src="https://images.unsplash.com/photo-1540648639573-8c848de23f0a?q=80&w=500&auto=format&fit=crop"
+                                    alt="Signature Assortment"></label></div>
+                        <div><label for="card-2"><img
+                                    src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=500&auto=format&fit=crop"
+                                    alt="Classic Nigiri"></label></div>
+                        <div><label for="card-3"><img
+                                    src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=500&auto=format&fit=crop"
+                                    alt="Spicy Tuna Maki"></label></div>
+                        <div><label for="card-4"><img
+                                    src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=500&auto=format&fit=crop"
+                                    alt="Salmon Sashimi"></label></div>
+                        <div><label for="card-5"><img
+                                    src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=500&auto=format&fit=crop"
+                                    alt="Eel Sushi"></label></div>
+                        <div><label for="card-6"><img
+                                    src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=500&auto=format&fit=crop"
+                                    alt="Sushi Platter"></label></div>
+                        <div><label for="card-7"><img
+                                    src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=500&auto=format&fit=crop"
+                                    alt="Dragon Roll"></label></div>
+                        <div><label for="card-8"><img
+                                    src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?q=80&w=500&auto=format&fit=crop"
+                                    alt="Sashimi Bowl"></label></div>
+                    </div>
+
+                    <!-- Detail panel (inside the card) -->
+                    <div class="dish-details">
+                        <article class="dish-article">
+                            <h3 class="dish-title">Signature Assortment</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Edo-mae tradition, Tokyo
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Mixed assortment platter</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Umami-rich, balanced and
+                                    clean</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Light Japanese sake or
+                                    green tea</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Classic Nigiri</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Edo period, 19th century
+                                    Japan</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Hand-pressed sushi</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Delicate, subtly sweet
+                                    vinegar rice</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Pickled ginger and soy
+                                    sauce</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Spicy Tuna Maki</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Japanese-American fusion
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Rolled maki with crispy
+                                    tempura</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Bold, spicy with a sesame
+                                    finish</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Cold lager or yuzu
+                                    lemonade</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Salmon Sashimi</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Nordic-influenced, Oslo
+                                    salmon</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Premium thinly-sliced raw fish
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Buttery, melt-in-mouth
+                                    richness</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Ponzu or classic wasabi
+                                    soy</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Eel Sushi</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Kansai region, Osaka</li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Grilled unagi over seasoned
+                                    rice</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Sweet, smoky and
+                                    caramelised</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Dry white wine or
+                                    sparkling water</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Sushi Platter</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Omakase sharing tradition
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Chef's curated sharing platter
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Diverse — from mild to bold
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Chilled junmai sake</li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Dragon Roll</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> California roll evolution
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Inside-out, avocado-wrapped
+                                    roll</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Creamy, crunchy, savoury
+                                    depth</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Spicy mayo or eel sauce
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="dish-article">
+                            <h3 class="dish-title">Sashimi Bowl</h3>
+                            <div class="dish-divider"></div>
+                            <ul class="dish-list">
+                                <li class="dish-li"><span class="dish-label">Origin:</span> Chirashi-sushi, Kyoto style
+                                </li>
+                                <li class="dish-li"><span class="dish-label">Type:</span> Premium cuts over seasoned
+                                    rice</li>
+                                <li class="dish-li"><span class="dish-label">Flavour:</span> Clean, oceanic and
+                                    harmonious</li>
+                                <li class="dish-li"><span class="dish-label">Pairs with:</span> Miso soup and cold brew
+                                    tea</li>
+                            </ul>
+                        </article>
+                    </div><!-- /.dish-details -->
+
+                    <!-- Nav arrows at card bottom -->
+                    <div class="dial-nav-grid">
+                        <div class="dial-nav-slot"><label for="card-8" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-2" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-1" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-3" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-2" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-4" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-3" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-5" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-4" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-6" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-5" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-7" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-6" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-8" class="nav-btn magnetic">&#8594;</label></div>
+                        <div class="dial-nav-slot"><label for="card-7" class="nav-btn magnetic">&#8592;</label><label
+                                for="card-1" class="nav-btn magnetic">&#8594;</label></div>
+                    </div>
+                </div><!-- /.cards -->
+            </div><!-- /.cards-wrapper -->
+        </section>
+
+        <section class="section center-align" id="order">
+            <div class="section-content final-cta">
+                <h2 class="reveal-text">Ready to Order?</h2>
+                <button class="btn-large magnetic order-trigger">Taste the best</button>
+            </div>
+        </section>
+
+        <!-- Find Us Section -->
+        <section class="section center-align find-us-section" id="find-us">
+            <div class="section-content find-us-content">
+                <h2 class="reveal-text">Find Us.</h2>
+                <p class="reveal-text">Visit us at the Pleintje — fresh, premium sushi crafted daily, ready for you to
+                    take home.</p>
+                <div class="map-wrapper">
+                    <iframe id="sushi-map" title="Sushi Pleintje Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500.0!2d4.4!3d51.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f68de7b87ec5%3A0x1!2sSushi+Pleintje!5e0!3m2!1snl!2sbe!4v1700000000000!5m2!1snl!2sbe"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay-info">
+                        <div class="map-pin-card">
+                            <span class="pin-icon">📍</span>
+                            <div class="pin-details">
+                                <strong>Sushi Pleintje</strong>
+                                <span>Belgium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Indimex Partner Section -->
+    <section class="indimex-section section center-align">
+        <div class="section-content indimex-content">
+            <h3 class="reveal-text" style="font-size: 2rem; margin-bottom: 1rem;">Experience Indimex</h3>
+            <p class="reveal-text" style="margin-bottom: 3rem; max-width: 600px; text-align: center;">Where two cultures
+                unite through food. Discover the beautiful marriage of authentic Indian and Mexican culinary traditions
+                at our partner restaurant.</p>
+            <a href="https://indimex.be" target="_blank" rel="noopener noreferrer" class="indimex-link">
+                <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="indimex-logo">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../media/logo.png" alt="Sushi Pleintje Logo" class="footer-logo">
+                <a href="https://indimex.be" target="_blank" rel="noopener noreferrer" class="indimex-link">
+                    <img src="../media/indimex golden transparent.PNG" alt="Indimex Logo" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">OPENINGSUUREN</h4>
+                    <div class="footer-hours">
+                        <div class="hours-row"><span>Di-Do</span> <span>17:00 - 21:30</span></div>
+                        <div class="hours-row"><span>Vr-Za</span> <span>17:00 - 22:30</span></div>
+                        <div class="hours-row"><span>Zondag</span> <span>16:30 - 21:30</span></div>
+                        <div class="hours-row"><span>Maandag</span> <span>Gesloten</span></div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">CONTACT</h4>
+                    <div class="footer-contact-info">
+                        <p>Kerstrat 13A, 3200, Aarschot</p>
+                        <p><a href="tel:+3291234567" class="magnetic">+32 9 123 45 67</a></p>
+                        <p><a href="mailto:hallo@sushipleintje.be" class="magnetic">hallo@sushipleintje.be</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="magnetic" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="magnetic" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-credits">
+                <p>Designed by Karki Avishek</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ancient Envelope Reservation Widget -->
+    <div id="reservation-envelope-container" style="display: none;">
+        <div class="scrap-label magnetic">Reserve</div>
+        <div class="envelope">
+            <div class="envelope-flap top-flap"></div>
+            <div class="envelope-body">
+                <h3 class="reserve-title">Reserve a Table</h3>
+                <form id="reservation-form">
+                    <input type="text" class="env-input" placeholder="Name" required>
+                    <div class="env-row">
+                        <input type="date" class="env-input" required>
+                        <input type="time" class="env-input" required>
+                    </div>
+                    <button type="submit" class="env-btn magnetic">Send Request</button>
+                </form>
+            </div>
+            <div class="envelope-seal"></div>
+        </div>
+        <div id="reservation-success">Request Sent</div>
+    </div>
+
+    <!-- Login Modal (Premium Popup) -->
+    <div id="login-overlay" class="login-overlay"></div>
+    <div id="login-modal" class="login-modal">
+        <div class="login-card">
+            <button id="login-close-btn" class="login-close-btn">&times;</button>
+            <div class="login-banner">
+                <img src="../media/premium_sushi.png" alt="Premium Sushi" class="login-photo">
+            </div>
+            <img src="../media/logo.png" alt="Sushi Pleintje" class="logo-small">
+            <h1>Welcome Back</h1>
+            <p>Log in to access your account and order your favorites.</p>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="name@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Libraries via CDN -->
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Removed Three.js (Using SVG Displacement to fix local file CORS) -->
+
+    <!-- Main Script -->
+    <script src="products.js?v=9"></script>
+    <script src="main.js?v=9"></script>
+</body>
+
+</html>
